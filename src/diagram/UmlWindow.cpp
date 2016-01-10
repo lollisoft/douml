@@ -886,7 +886,7 @@ void UmlWindow::load(QString fn, bool forcesaveas) {
   idmax_add_margin();
   browser->get_project()->setOpen(TRUE);
   QApplication::restoreOverrideCursor();
-  setCaption("Bouml : " + fn);
+  setCaption(PRODUCT_NAME + " : " + fn);
   
   if (format < 20) {
     BrowserClass::plug_out_conversion();
@@ -1007,7 +1007,7 @@ bool UmlWindow::saveas_it()
 	    BrowserPackage::save_all(FALSE);
 	  the->ws->show();
 	  QApplication::restoreOverrideCursor();
-	  the->setCaption("Bouml : " + f);
+	  the->setCaption(PRODUCT_NAME + " : " + f);
 	  return TRUE;
 	}
       }

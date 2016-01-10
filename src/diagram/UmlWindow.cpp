@@ -26,7 +26,6 @@
 
 
 
-
 #include <qcursor.h>
 #include <qworkspace.h>
 #include <qsplitter.h>

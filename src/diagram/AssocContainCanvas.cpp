@@ -42,6 +42,7 @@
 #include "MenuTitle.h"
 #include "DialogUtil.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 AssocContainCanvas::AssocContainCanvas(UmlCanvas * canvas, DiagramItem * b,
 				   DiagramItem * e, int id, float d_start, float d_end)
@@ -176,7 +177,7 @@ void AssocContainCanvas::remove(bool from_model) {
 	}
   
 	if (a && !a->end->isSelected() && !a->end->get_bn()->deletedp()) {
-	  msg_warning("Bouml", TR("<i>Draw all relations</i> forced to <i>no</i>"));
+	  msg_warning(PRODUCT_NAME, TR("<i>Draw all relations</i> forced to <i>no</i>"));
 	  the_canvas()->dont_draw_all_relations();
 	}
       }

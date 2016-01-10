@@ -67,6 +67,7 @@
 #include "DialogUtil.h"
 #include "myio.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 ActivityDiagramView::ActivityDiagramView(QWidget * parent, UmlCanvas * canvas, int id)
     : DiagramView(parent, canvas, id) {
@@ -120,7 +121,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -149,7 +150,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -180,7 +181,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -240,7 +241,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	  history_protected = TRUE;
 
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -268,7 +269,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -299,7 +300,7 @@ void ActivityDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -436,7 +437,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlActivityNode, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       
@@ -455,7 +456,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlInterruptibleActivityRegion, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       
@@ -479,7 +480,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlExpansionRegion, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       
@@ -503,7 +504,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlActivityPartition, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       
@@ -527,7 +528,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlActivityAction, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       history_protected = TRUE;
@@ -547,7 +548,7 @@ void ActivityDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlActivityObject, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else {
       history_save();
       history_protected = TRUE;

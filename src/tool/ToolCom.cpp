@@ -54,6 +54,7 @@ using namespace std;
 #include "DialogUtil.h"
 #include "mu.h"
 #include "err.h"
+#include "UmlGlobal.h"
 
 Socket::Socket(ToolCom * c)
     : QSocketDevice(QSocketDevice::Stream), com(c) {
@@ -193,7 +194,7 @@ int ToolCom::run(const char * cmd, BrowserNode * bn,
   (void) system(s);
   
   if (errno != 0) {
-    msg_critical("Bouml",
+    msg_critical(PRODUCT_NAME,
 		 "error while executing '" + QString(cmd) +"'\n"
 		 "perhaps you must specify its absolute path"
 		 "or set the environment variable PATH ?");
@@ -577,7 +578,7 @@ void ToolCom::fatal_error(const char *
 }
 
 void ToolCom::connexion_timeout() {
-  msg_critical("Bouml", 
+  msg_critical(PRODUCT_NAME, 
 	       QString("connexion timeout for '") + cmd +"'");
   close();
   

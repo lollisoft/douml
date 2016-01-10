@@ -55,6 +55,7 @@
 #include "MenuTitle.h"
 #include "DialogUtil.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 SeqDiagramView::SeqDiagramView(QWidget * parent, UmlCanvas * canvas, int id)
     : DiagramView(parent, canvas, id) {
@@ -202,7 +203,7 @@ void SeqDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	      QString err = i->may_start(c);
 	      
 	      if (!err.isEmpty())
-		msg_critical("Bouml" , err);
+		msg_critical(PRODUCT_NAME , err);
 	      else {
 		i->connexion(c, i, e->pos(), e->pos());
 		window()->package_modified();

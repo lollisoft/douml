@@ -287,7 +287,7 @@ void ObjectLinkCanvas::open() {
 	((OdClassInstCanvas *) first->begin)
 	->is_duplicated(first, (OdClassInstCanvas *) last->end)) {
       // already drawn
-      msg_warning("Bouml", TR("Relation already drawn"));
+      msg_warning(PRODUCT_NAME, TR("Relation already drawn"));
       set_relation(0);
     }
     
@@ -346,7 +346,7 @@ void ObjectLinkCanvas::remove(bool from_model) {
 	  }
 	  
 	  if (a && !a->end->isSelected() && !a->end->get_bn()->deletedp()) {
-	    msg_warning("Bouml", TR("<i>Draw all relations</i> forced to <i>no</i>"));
+	    msg_warning(PRODUCT_NAME, TR("<i>Draw all relations</i> forced to <i>no</i>"));
 	    the_canvas()->dont_draw_all_relations();
 	  }
 	}

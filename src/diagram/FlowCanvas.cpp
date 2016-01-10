@@ -136,7 +136,7 @@ void FlowCanvas::remove(bool from_model) {
 	}
   
 	if (a && !a->end->isSelected() && !a->end->get_bn()->deletedp()) {
-	  msg_warning("Bouml", TR("<i>Draw all relations</i> forced to <i>no</i>"));
+	  msg_warning(PRODUCT_NAME, TR("<i>Draw all relations</i> forced to <i>no</i>"));
 	  the_canvas()->dont_draw_all_relations();
 	}
       }
@@ -705,7 +705,7 @@ void FlowCanvas::drop(BrowserNode * bn, UmlCanvas * canvas)
   
   if ((difrom != 0) && (dito != 0)) {
     if (difrom->has_relation(UmlFlow, def))
-      msg_information("Bouml", TR("flow already drawn"));
+      msg_information(PRODUCT_NAME, TR("flow already drawn"));
     else {
       FlowCanvas * tr = 
 	new FlowCanvas(canvas, difrom, dito, from, 0, -1.0, -1.0, def);

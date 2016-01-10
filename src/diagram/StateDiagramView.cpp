@@ -54,6 +54,7 @@
 #include "DialogUtil.h"
 #include "myio.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 StateDiagramView::StateDiagramView(QWidget * parent, UmlCanvas * canvas, int id)
     : DiagramView(parent, canvas, id) {
@@ -110,7 +111,7 @@ void StateDiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	
 	if (b != 0) {
 	  if (the_canvas()->already_drawn(b)) {
-	    msg_information("Bouml", TR("already drawn"));
+	    msg_information(PRODUCT_NAME, TR("already drawn"));
 	    history_protected = FALSE;
 	    return;
 	  }
@@ -282,9 +283,9 @@ void StateDiagramView::dropEvent(QDropEvent * e) {
   
   if ((bn = UmlDrag::decode(e, UmlState, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else if (BrowserState::get_machine(bn) != mach)
-      msg_information("Bouml", TR("illegal"));
+      msg_information(PRODUCT_NAME, TR("illegal"));
     else {
       history_save();
       
@@ -316,9 +317,9 @@ void StateDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlPseudoState, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else if (BrowserState::get_machine(bn) != mach)
-      msg_information("Bouml", TR("illegal"));
+      msg_information(PRODUCT_NAME, TR("illegal"));
     else {
       history_save();
       
@@ -337,9 +338,9 @@ void StateDiagramView::dropEvent(QDropEvent * e) {
   }
   else if ((bn = UmlDrag::decode(e, UmlStateAction, TRUE)) != 0) {
     if (the_canvas()->already_drawn(bn))
-      msg_information("Bouml", TR("already drawn"));
+      msg_information(PRODUCT_NAME, TR("already drawn"));
     else if (BrowserState::get_machine(bn) != mach)
-      msg_information("Bouml", TR("illegal"));
+      msg_information(PRODUCT_NAME, TR("illegal"));
     else {
       history_save();
       

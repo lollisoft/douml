@@ -28,6 +28,7 @@
 #include <qmessagebox.h>
 
 #include "translate.h"
+#include "UmlGlobal.h"
 
 static QDict<QString> * CurrentTranslation = 0;
 static QString CurrentLang;
@@ -49,7 +50,7 @@ void set_lang(QString l)
       FILE * fp = fopen((const char *) l, "rb");
       
       if (fp == 0) {
-	QMessageBox::critical(0, "Bouml",
+	QMessageBox::critical(0, PRODUCT_NAME,
 			      "cannot open file " +
 			      l +
 			      "\n, still use " + 

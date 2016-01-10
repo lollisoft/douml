@@ -31,6 +31,8 @@
 
 #include "UmlEnum.h"
 
+#define PRODUCT_NAME "DoUML"
+
 extern QFont NormalFont;
 extern QFont BoldFont;
 extern QFont ItalicFont;

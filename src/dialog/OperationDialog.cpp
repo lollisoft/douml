@@ -69,6 +69,7 @@
 #include "Tool.h"
 #include "ProfiledStereotypes.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 QSize OperationDialog::previous_size;
 
@@ -1496,7 +1497,7 @@ void OperationDialog::cpp_edit_param_decl() {
       cpp_update_decl();
   }
   else
-    msg_warning("Bouml", TR("wrong specification"));
+    msg_warning(PRODUCT_NAME, TR("wrong specification"));
 }
 
 void OperationDialog::manage_cpp_type(unsigned rank, QString & s)
@@ -1985,7 +1986,7 @@ void OperationDialog::cpp_edit_param_def() {
       cpp_update_def();
   }
   else
-    msg_warning("Bouml", TR("wrong specification"));
+    msg_warning(PRODUCT_NAME, TR("wrong specification"));
 }
 
 // return TRUE if stop on ${commnt} or ${description}
@@ -2968,7 +2969,7 @@ void OperationDialog::php_edit_param() {
       php_update_def();
   }
   else
-    msg_warning("Bouml", TR("wrong specification"));
+    msg_warning(PRODUCT_NAME, TR("wrong specification"));
 }
 
 // Python
@@ -3416,7 +3417,7 @@ void OperationDialog::python_edit_param() {
       python_update_def();
   }
   else
-    msg_warning("Bouml", TR("wrong specification"));
+    msg_warning(PRODUCT_NAME, TR("wrong specification"));
 }
 
 void OperationDialog::python_edit_decorator() {

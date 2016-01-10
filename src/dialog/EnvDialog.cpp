@@ -50,6 +50,7 @@
 #include "mu.h"
 #include "myio.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 void EnvDialog::edit(bool conv, bool noid)
 {
@@ -292,7 +293,7 @@ void EnvDialog::accept() {
       (sscanf((const char *) ed_id->text(), "%d", &id) != 1) ||
       (id < 2) ||
       (id > 127)) {
-    QMessageBox::critical(this, "Bouml", TR("Invalid identifier, must be an integer between 2 and 127"));
+    QMessageBox::critical(this, PRODUCT_NAME, TR("Invalid identifier, must be an integer between 2 and 127"));
     return;
   }
   
@@ -306,34 +307,34 @@ void EnvDialog::accept() {
   
   if (ok_l && ok_t && ok_r && ok_b) {
     if ((l < 0) || (t < 0) || (r < 0) || (b < 0)) {
-      QMessageBox::critical(this, "Bouml",
+      QMessageBox::critical(this, PRODUCT_NAME,
 			    TR("Invalid DEFAULT SCREEN : coordinates can't be negative"));
       return;
     }
     else if ((l != 0) || (t != 0) || (r != 0) || (b != 0)) {
       if (r <= l) {
-	QMessageBox::critical(this, "Bouml",
+	QMessageBox::critical(this, PRODUCT_NAME,
 			      TR("Invalid DEFAULT SCREEN : the right must be greater than the left"));
 	return;
       }
       
       if (b <= t) {
-	QMessageBox::critical(this, "Bouml",
+	QMessageBox::critical(this, PRODUCT_NAME,
 			      TR("Invalid DEFAULT SCREEN : the bottom must be greater than the top"));
 	return;
       }
       
       if ((r - l) < 500)
-	QMessageBox::warning(this, "Bouml",
+	QMessageBox::warning(this, PRODUCT_NAME,
 			     TR("small DEFAULT SCREEN, width less than 500 points !"));
       
       if ((b - t) < 500)
-	QMessageBox::warning(this, "Bouml",
+	QMessageBox::warning(this, PRODUCT_NAME,
 			     TR("small DEFAULT SCREEN, height less than 500 points !"));
     }
   }
   else {
-    QMessageBox::critical(this, "Bouml",
+    QMessageBox::critical(this, PRODUCT_NAME,
 			  TR("Invalid DEFAULT SCREEN"
 			     "To not specify the desktop all values must be empty or null."
 			     "Else the values must be non negative, the right must be greater\n"
@@ -364,7 +365,7 @@ void EnvDialog::accept() {
 
   
   if (fp == 0) {
-    QMessageBox::critical(this, "Bouml", "cannot write in '" + s + "'");
+    QMessageBox::critical(this, PRODUCT_NAME, "cannot write in '" + s + "'");
     if (conversion)
       exit(-1);
     else
@@ -600,7 +601,7 @@ int read_boumlrc()
 
   
   if (fp == 0) {
-    QMessageBox::critical(0, "Bouml", TR("cannot read '%1'", s));
+    QMessageBox::critical(0, PRODUCT_NAME, TR("cannot read '%1'", s));
     exit(-1);
   }
 
@@ -656,7 +657,7 @@ int read_boumlrc()
   }
   
   if (id == -1) {
-    QMessageBox::critical(0, "Bouml", TR("Own identifier missing or invalid"));
+    QMessageBox::critical(0, PRODUCT_NAME, TR("Own identifier missing or invalid"));
     EnvDialog::edit(FALSE, TRUE);
     return read_boumlrc();
   }

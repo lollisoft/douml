@@ -43,6 +43,7 @@
 #include "UmlDesktop.h"
 #include "DialogUtil.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 static QString NavigatorPath;
 static QString ManualDir;
@@ -182,7 +183,7 @@ void HelpDialog::show(QString topic)
 	(void) system(s);
 	
 	if (errno != 0)
-	  QMessageBox::critical(0, "Bouml",
+	  QMessageBox::critical(0, PRODUCT_NAME,
 				TR("error while executing '%1'\n"
 				   "perhaps you must specify its absolute path"
 				   "or set the environment variable PATH ?", NavigatorPath));

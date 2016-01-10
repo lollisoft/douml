@@ -71,6 +71,7 @@
 #include "myio.h"
 #include "err.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 #include "align_top.xpm"
 #include "align_bottom.xpm"
@@ -383,7 +384,7 @@ void DiagramView::contentsMousePressEvent(QMouseEvent * e) {
 	    QString err = i->may_start(action);
 	    
 	    if (!err.isEmpty()) {
-	      msg_critical("Bouml" , err);
+	      msg_critical(PRODUCT_NAME , err);
 	      window()->selectOn();
 	    }
 	    else {
@@ -482,7 +483,7 @@ void DiagramView::contentsMouseReleaseEvent(QMouseEvent * e) {
 		abort_line_construction();
 	    }
 	    else if (err != TR("illegal")) {
-	      msg_critical("Bouml", err);
+	      msg_critical(PRODUCT_NAME, err);
 	      abort_line_construction();
 	    }
 	    else if (arrowBeginning->allowed_direction(action) == DiagramItem::All) {

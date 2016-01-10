@@ -148,8 +148,8 @@ static QString prevText() { return TR("To select the previously selected element
 static QString nextText() { return TR("To select the next selected element in the <i>browser</i>."); }
 static QString completionText() { return TR("To ask or not for an auto completion (non case sensitive) in choice list (<i>combo box</i>)"); }
 
-UmlWindow::UmlWindow(bool batch) : QMainWindow(0, "Bouml", WDestructiveClose) {
-  setCaption("Bouml");
+UmlWindow::UmlWindow(bool batch) : QMainWindow(0, PRODUCT_NAME, WDestructiveClose) {
+  setCaption(PRODUCT_NAME);
   
   the = this;
   commented = 0;
@@ -554,7 +554,7 @@ produced for an attribute etc..., and to set the root directories"));
     }
   }
   else
-    msg_warning("Bouml",
+    msg_warning(PRODUCT_NAME,
 		TR("Nothing available while a dialog is opened"));
 }
 
@@ -896,7 +896,7 @@ void UmlWindow::load(QString fn, bool forcesaveas) {
     BrowserClass::new_java_enums(new_st);
     
     browser->get_project()->package_modified();
-    msg_warning("BOUML",
+    msg_warning(PRODUCT_NAME,
 		"Project conversion done.<br><br>"
 		"A <i>save-as</i> is forced now to save the result "
 		"in a new project, then the project will be closed");
@@ -919,7 +919,7 @@ void UmlWindow::load(QString fn, bool forcesaveas) {
     if (must_save_as)
       m += "A <i>save-as</i> is forced now to save the result in a new project";
     
-    msg_warning("Bouml", m);
+    msg_warning(PRODUCT_NAME, m);
     
     if (must_save_as || forcesaveas) {
       if (! saveas_it())
@@ -958,7 +958,7 @@ void UmlWindow::save() {
       QApplication::restoreOverrideCursor();
     }
     else
-      msg_warning("Bouml",
+      msg_warning(PRODUCT_NAME,
 		  TR("Saving can't be done while a dialog is opened"));
   }
 }
@@ -1025,7 +1025,7 @@ bool UmlWindow::saveas_it()
 bool UmlWindow::can_close() {
   if (browser->get_project()) {
     if (BrowserPackage::must_be_saved()) {
-      switch (msg_warning("Bouml",
+      switch (msg_warning(PRODUCT_NAME,
 			  TR("The project is modified, save it ?\n"),
 			  QMessageBox::Yes, QMessageBox::No,
 			  QMessageBox::Cancel)) {
@@ -1089,7 +1089,7 @@ void UmlWindow::close_it()
     the->toolMenu->clear();
     
     QApplication::restoreOverrideCursor();
-    the->setCaption("Bouml");
+    the->setCaption(PRODUCT_NAME);
   }
   
   Tool::init();
@@ -1357,11 +1357,11 @@ void UmlWindow::preserve() {
   
   if (prj != 0) {
     if (!prj->is_writable())
-      msg_critical("Bouml", TR("Unchanged : project is read-only"));
+      msg_critical(PRODUCT_NAME, TR("Unchanged : project is read-only"));
     else {
       toggle_preserve_bodies();
       if (! preserve_bodies())
-	msg_warning("Bouml",
+	msg_warning(PRODUCT_NAME,
 		    TR("Warning : <i>Preserve operations's body</i> set to false.<br><br>"
 		       "If you had modified body of operation outside Bouml without "
 		       "using <i>roundtrip body</i> after these modifications, you "
@@ -1380,12 +1380,12 @@ void UmlWindow::addoperationprofile() {
   
   if (prj != 0) {
     if (!prj->is_writable())
-      msg_critical("Bouml", TR("Unchanged : project is read-only"));
+      msg_critical(PRODUCT_NAME, TR("Unchanged : project is read-only"));
     else {
       toggle_add_operation_profile();
       if (add_operation_profile() && preserve_bodies()) {
 	toggle_preserve_bodies();
-	msg_critical("Bouml",
+	msg_critical(PRODUCT_NAME,
 		     TR("Warning : <i>Preserve operations's body</i> toggle is cleared !<br><br>"
 			"Next code generations will replace operations's body<br><br>"
 			"If you had modified body of operation outside Bouml without "
@@ -1492,7 +1492,7 @@ void UmlWindow::setFontSize(int i) {
   
   if (prj != 0) {
     if (!prj->is_writable() &&
-	(msg_warning("Bouml",
+	(msg_warning(PRODUCT_NAME,
 		     TR("Project file is read-only, new font "
 			"size will not be saved, continue ?\n"),
 		     QMessageBox::Yes, QMessageBox::No)
@@ -1547,7 +1547,7 @@ void UmlWindow::setFormat(int i) {
   
   if (prj != 0) {
     if (!prj->is_writable() &&
-	(msg_warning("Bouml",
+	(msg_warning(PRODUCT_NAME,
 		     TR("Project file is read-only, default "
 			"format will not be saved, continue ?\n"),
 		     QMessageBox::Yes, QMessageBox::No)
@@ -1820,7 +1820,7 @@ void UmlWindow::about() {
 }
 
 void UmlWindow::aboutQt() {
-  QMessageBox::aboutQt(this, "Bouml");
+  QMessageBox::aboutQt(this, PRODUCT_NAME);
 }
 
 void UmlWindow::windowsMenuAboutToShow() {

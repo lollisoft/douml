@@ -35,6 +35,7 @@
 #include "mu.h"
 #include "Labeled.h"
 #include "myio.h"
+#include "UmlGlobal.h"
 
 // to manage renumber case : old diagram (format < 9) and
 // import project
@@ -245,7 +246,7 @@ void check_ids_cleared()
 {
   for (IntList * cell = FirstCell; cell != 0; cell = cell->next)
     if (*(cell->pint) != FIRST_ID)
-      QMessageBox::critical(0, "Bouml", 
+      QMessageBox::critical(0, PRODUCT_NAME, 
 			    cell->file + QString("\nclear() not called !\n"
 						 "check also update_idmax_for_root()"));
 }

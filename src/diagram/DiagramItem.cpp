@@ -38,6 +38,7 @@
 #include "DialogUtil.h"
 #include "myio.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 QList<DiagramItem> DiagramItem::Undefined;
 
@@ -150,7 +151,7 @@ void DiagramItem::remove_if_already_present() {
     if ((di->type() == k) && (di->get_bn() == bn) && (di != this)) {
       // already present
       if (Undefined.isEmpty())
-	msg_warning("Bouml", TR("some elements already present in the diagram are NOT paste"));
+	msg_warning(PRODUCT_NAME, TR("some elements already present in the diagram are NOT paste"));
       Undefined.append(this);
       return;
     }

@@ -35,6 +35,7 @@
 
 #include "UmlDesktop.h"
 #include "DialogUtil.h"
+#include "UmlGlobal.h"
 
 int UmlDesktop::left;
 int UmlDesktop::top;
@@ -146,7 +147,7 @@ void UmlDesktop::set_limits(int l, int t, int r, int b)
     fixedp = FALSE;
   else if ((r < 0) || (t < 0) || (r < 0) || (b < 0)) {
     fixedp = FALSE;
-    QMessageBox::critical(0, "Bouml",
+    QMessageBox::critical(0, PRODUCT_NAME,
 			  "Invalid DEFAULT SCREEN, values not taken into account\n"
 			  "\n"
 			  "coordinates can't be negative");
@@ -154,7 +155,7 @@ void UmlDesktop::set_limits(int l, int t, int r, int b)
   else if ((r <= l) || (b <= t)) {
     fixedp = FALSE;
     
-    QMessageBox::critical(0, "Bouml",
+    QMessageBox::critical(0, PRODUCT_NAME,
 			  "Invalid DEFAULT SCREEN, values not taken into account\n"
 			  "\n"
 			  "right must be greater than left, and bottom must be greater than top");

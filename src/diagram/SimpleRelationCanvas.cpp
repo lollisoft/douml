@@ -123,7 +123,7 @@ void SimpleRelationCanvas::remove(bool from_model) {
 	}
   
 	if (a && !a->end->isSelected() && !a->end->get_bn()->deletedp()) {
-	  msg_warning("Bouml", "<i>Draw all relations</i> forced to <i>no</i>");
+	  msg_warning(PRODUCT_NAME, "<i>Draw all relations</i> forced to <i>no</i>");
 	  the_canvas()->dont_draw_all_relations();
 	}
       }
@@ -426,7 +426,7 @@ void SimpleRelationCanvas::drop(BrowserNode * bn, UmlCanvas * canvas)
   
   if ((ccfrom != 0) && (ccto != 0)) {
     if (ccfrom->has_relation(def))
-      msg_information("Bouml", "relation already drawn");
+      msg_information(PRODUCT_NAME, "relation already drawn");
     else {
       SimpleRelationCanvas * rel = 
 	new SimpleRelationCanvas(canvas, ccfrom, ccto, from,

@@ -51,6 +51,7 @@
 #include "mu.h"
 #include "BrowserStateDiagram.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 IdDict<BrowserPseudoState> BrowserPseudoState::all(257, __FILE__);
 QStringList BrowserPseudoState::its_default_stereotypes;	// unicode
@@ -336,13 +337,13 @@ BrowserPseudoState * BrowserPseudoState::get_pseudostate(BrowserNode * future_pa
   switch (c) {
   case DeepHistoryPS:
     if (! l.isEmpty()) {
-      msg_critical("Bouml", TR("already have a deep history"));
+      msg_critical(PRODUCT_NAME, TR("already have a deep history"));
       return 0;
     }
     break;
   case ShallowHistoryPS:
     if (! l.isEmpty()) {
-      msg_critical("Bouml",  TR("already have a shallow history"));
+      msg_critical(PRODUCT_NAME,  TR("already have a shallow history"));
       return 0;
     }
     break;

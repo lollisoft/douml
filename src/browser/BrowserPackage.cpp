@@ -1160,7 +1160,7 @@ void BrowserPackage::add_package(bool profile) {
       p->def->set_stereotype("profile");
     p->select_in_browser();
     if ((owner != -1) &&
-	(msg_warning("Bouml",
+	(msg_warning(PRODUCT_NAME,
 		     TR("Do you want to be the owner of this new package ?\n"
 			"(other users can't modify it while you are the owner)"),
 		     QMessageBox::Yes, QMessageBox::No )
@@ -1242,7 +1242,7 @@ BrowserPackage * BrowserPackage::import_project(QString fn, bool aslib, int id) 
 
 void BrowserPackage::update_lib() {
   if (must_be_saved()) {
-    if (msg_warning("Bouml",
+    if (msg_warning(PRODUCT_NAME,
 		    TR("The project is modified and need to be saved first.\n"
 		       "If you don't want to save your modifications reload\n"
 		       "the project then ask again for the update\n"

@@ -37,6 +37,7 @@
 #include "DialogUtil.h"
 #include "EnvDialog.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 static int Uid = -1;
 static int RootPermission;	// old Uid or 0
@@ -58,7 +59,7 @@ int user_id()
     QDir dir = BrowserView::get_dir();
     
     if (dir.exists("all.lock")) {
-      msg_critical("Bouml", 
+      msg_critical(PRODUCT_NAME, 
 		   TR("\
 The project is open in read-only mode because it is\n\
 under the control of 'Project control' or 'Project merge'\n\

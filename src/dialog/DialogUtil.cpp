@@ -56,6 +56,7 @@
 #include "strutil.h"
 #include "UmlDesktop.h"
 #include "translate.h"
+#include "UmlGlobal.h"
 
 static QString BoumlEditor;
 
@@ -260,7 +261,7 @@ bool check_edits(QList<BodyDialog> & edits)
   if (edits.isEmpty())
     return TRUE;
   
-  return (msg_critical("Bouml",
+  return (msg_critical(PRODUCT_NAME,
 		       TR("Sub dialog(s) still opened\n"
 			  "If you choose 'Ok' the dialog will be closed\n"
 			  "without taking into account it content"),
